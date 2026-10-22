@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavani S | My Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal: #00e5cc;
+            --teal-dark: #00a896;
+            --black: #050505;
+            --card: #111414;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--black);
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #090909;
+            border-bottom: 1px solid #123b37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 30px;
+            color: var(--teal);
+            letter-spacing: 3px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #eeeeee;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--teal);
+        }
+
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            color: var(--teal);
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section p {
+            color: #cccccc;
+            margin-bottom: 12px;
+        }
+
+        #home {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #050505;
+        }
+
+        .profile-initial {
+            width: 145px;
+            height: 145px;
+            border: 3px solid var(--teal);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--teal);
+            background: #101414;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .profile-initial:hover {
+            transform: scale(1.04);
+        }
+
+        #home h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        #home h2 {
+            color: var(--teal);
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        #home p {
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 28px;
+            background: var(--teal);
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--teal);
+            border: 1px solid var(--teal);
+        }
+
+        .card {
+            background: var(--card);
+            padding: 28px;
+            margin: 22px auto;
+            max-width: 750px;
+            border: 1px solid #173c38;
+            border-radius: 12px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .card h3 {
+            color: var(--teal);
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--teal);
+        }
+
+        .card a {
+            color: var(--teal);
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        #education .card {
+            border-left: 4px solid var(--teal);
+        }
+
+        #skills .card p {
+            display: block;
+            background: transparent;
+            border: none;
+            color: #cccccc;
+            padding: 0;
+            margin: 8px 0 16px;
+            line-height: 1.7;
+        }
+
+        #skills .card p strong {
+            display: block;
+            color: var(--teal);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        #projects .card {
+            border-top: 3px solid var(--teal);
+        }
+
+        #certifications {
+            background: #050505;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        #certifications .section-subtitle {
+            color: var(--teal);
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        #certifications h2 {
+            color: var(--teal);
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #111414;
+            color: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--teal);
+            border-radius: 12px;
+            text-align: left;
+            transition: border-color 0.3s ease;
+        }
+
+        .cert-card h3 {
+            color: var(--teal);
+            font-size: 19px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .cert-card p {
+            color: #cccccc;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .cert-card:hover {
+            border-color: #ffffff;
+        }
+
+        .cert-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        #contact .card {
+            line-height: 2.2;
+        }
+
+        #contact .card strong {
+            color: var(--teal);
+        }
+
+        /* Footer Styling */
+        footer {
+            display: block;
+            width: 100%;
+            padding: 25px 10px;
+            margin-top: 30px;
+            text-align: center;
+            line-height: 2;
+            background-color: #050505;
+            color: #ffffff;
+            border-top: 1px solid #333333;
+        }
+
+        footer p {
+            color: #ffffff;
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--teal);
+        }
+
+        @media (max-width: 900px) {
+            .certifications-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px 12px;
+            }
+
+            .navbar ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .navbar ul li a {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 60px 7%;
+            }
+
+            #home h1 {
+                font-size: 32px;
+            }
+
+            #home h2 {
+                font-size: 21px;
+            }
+
+            .section h2 {
+                font-size: 26px;
+            }
+
+            .profile-initial {
+                width: 120px;
+                height: 120px;
+                font-size: 40px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .certifications-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-card {
+                padding: 24px;
+            }
+
+            #certifications h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .navbar ul {
+                gap: 10px;
+            }
+
+            .navbar ul li a {
+                font-size: 12px;
+            }
+
+            #home h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2 class="logo">Bhavani</h2>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="profile-initial">BS</div>
+        <h1>Hi, I'm Bhavani!</h1>
+        <h2>Welcome to My Portfolio</h2>
+        <p>
+            I am a Computer Science student eager to explore
+            new technologies and improve my coding skills.
+        </p>
+        <a href="#about" class="btn">Know More</a>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+
+        <div class="card">
+            <p>
+                Hi! I'm Bhavani S, a Computer Science student with a strong interest in web
+                development and programming. I enjoy learning new technologies,
+                enhancing my technical abilities, and applying my knowledge to practical projects.
+            </p>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <h2>My Education</h2>
+
+        <div class="card">
+            <h3>B.Sc Computer Science</h3>
+            <p>KG College Of Arts And Science</p>
+            <p>Currently Pursuing</p>
+            <p><strong>Current CGPA:</strong> 7.6/10</p>
+        </div>
+
+        <div class="card">
+            <h3>Higher Secondary (12th)</h3>
+            <p><strong>Percentage:</strong> 91.67%</p>
+        </div>
+
+        <div class="card">
+            <h3>SSLC (10th)</h3>
+            <p><strong>Percentage:</strong> 94.2%</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>My Skills</h2>
+
+        <div class="card">
+            <h3>Technical Skills</h3>
+
+            <p><strong>HTML</strong></p>
+            <p>Learning to create structured and well-organized web pages.</p>
+
+            <p><strong>CSS</strong></p>
+            <p>Designing attractive and responsive websites with creative styles.</p>
+
+            <p><strong>Python</strong></p>
+            <p>Using programming concepts to improve logical thinking and coding skills.</p>
+
+            <p><strong>Java Basic</strong></p>
+            <p>Understanding basic programming concepts and object-oriented programming.</p>
+        </div>
+
+        <div class="card">
+            <h3>Personal Skills</h3>
+
+            <p><strong>Willingness to Learn</strong></p>
+            <p>Always ready to learn new skills and explore new technologies.</p>
+
+            <p><strong>Teamwork</strong></p>
+            <p>Working together with others to achieve common goals.</p>
+
+            <p><strong>Problem Solving</strong></p>
+            <p>Developing logical thinking to identify and solve problems.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>My Projects</h2>
+
+        <div class="card">
+            <h3>Personal Portfolio Website</h3>
+            <p>
+                Created a personal portfolio website using
+                HTML and CSS to showcase my profile,
+                education, skills and projects.
+            </p>
+            <p><strong>Technologies:</strong> HTML, CSS</p>
+        </div>
+
+        <div class="card">
+            <h3>Bank Account Management System With Deposit,Withdrawl and Transaction History</h3>
+            <p>
+                Developed a Java-based Bank Account Management
+                System to manage bank account transactions.
+                The project supports deposits, withdrawals,
+                balance checking and transaction history.
+            </p>
+            <p><strong>Technologies:</strong> Java, OOP</p>
+
+            <p>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/Bhavani0408/1sem-Java-Project"
+                   target="_blank" rel="noopener noreferrer">
+                    https://github.com/Bhavani0408/1sem-Java-Project
+                </a>
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Student Marks Analyzer</h3>
+
+            <p>
+                Developed a C program to analyze student marks,
+                calculate total marks, average and percentage.
+            </p>
+
+            <p><strong>Technologies:</strong> C Programming</p>
+
+            <p>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/Bhavani0408/1sem-Cprogram-Project"
+                   target="_blank" rel="noopener noreferrer">
+                    https://github.com/Bhavani0408/1sem-Cprogram-Project
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <section id="certifications" class="section">
+        <p class="section-subtitle">CONTINUOUS LEARNING</p>
+        <h2>Certifications</h2>
+
+        <div class="certifications-container">
+
+            <div class="cert-card">
+                <div class="cert-icon"></div>
+                <h3>C Programming with DSA Foundation</h3>
+                <p>Programming and data structures fundamentals.</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon"></div>
+                <h3>Programming in Python</h3>
+                <p>Core Python programming concepts.</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon"></div>
+                <h3>Create a Supermarket App Using Java OOP</h3>
+                <p>Practical learning with Java OOP.</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon"></div>
+                <h3>Cloud Computing and Distributed Systems</h3>
+                <p>Cloud and distributed computing concepts.</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon"></div>
+                <h3>Digital Application Fundamentals</h3>
+                <p>Learned the basics of digital applications and emerging technologies.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+
+        <div class="card">
+            <p>Let's Connect!</p>
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:bhavanibs4714@gmail.com">
+                    bhavanibs4714@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                <a href="tel:8807098493">8807098493</a>
+            </p>
+
+            <p>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/Bhavani0408/"
+                   target="_blank" rel="noopener noreferrer">
+                    https://github.com/Bhavani0408
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Bhavani S | Personal Portfolio</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const footer = document.querySelector("footer p");
+
+            if (footer) {
+                footer.textContent =
+                    `© ${new Date().getFullYear()} Bhavani S | Personal Portfolio`;
+
+                console.log("Footer found:", footer);
+            } else {
+                console.error("Footer not found!");
+            }
+        });
+    </script>
+
+</body>
+</html>
